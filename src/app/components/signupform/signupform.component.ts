@@ -9,6 +9,7 @@ import { User } from '../../models/user';
   styleUrls: ['./signupform.component.scss']
 })
 export class SignupformComponent implements OnInit {
+  private static id :number = 0;
   
   /**
    * Tableau des civilités à afficher dans le formulaire
@@ -39,7 +40,17 @@ export class SignupformComponent implements OnInit {
   public get confirmedPassword() {return this.formController.controls.confirmedPassword;}
   public get cgu() {return this.formController.controls.cgu;}
 
-  
+  public onFormSubmit(): void {
+    if (this.formController.valid){
+      this.user = new User(this.formController.value);
+      SignupformComponent.id++;
+      this.user.id = SignupformComponent.id;
+
+      console.log('Yahooo' + JSON.stringify(this.user));
+    } else {
+      console.log('Essais encore');
+    } 
+  }
 
   /**
    * Méthode appelée immédiatement après le constructeur de la classe

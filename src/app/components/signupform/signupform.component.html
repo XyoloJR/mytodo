@@ -1,6 +1,8 @@
 
 <div class="container">
-  <form class="form-signin" [formGroup]="formController">
+  <form class="form-signin" 
+        [formGroup]="formController"
+        (ngSubmit)="onFormSubmit()">
     <h1 class="h3 mb-3 font-weight-normal">Créer votre compte</h1>
    
     <label for="nom" class="sr-only">Nom : </label>
@@ -8,24 +10,25 @@
       type="text" name="nom" id="nom" placeholder="Nom" 
       class="form-control"
       formControlName = "nom"/>
+    <!-- message d'erreur pour le nom -->
     <div class="alert alert-warning"
-      *ngIf="nom.invalid && nom.touched">
+         *ngIf="nom.invalid && nom.touched">
       Votre nom ne peut pas être vide !
     </div>
     
 
     <label for="prenom" class="sr-only">Prenom : </label>
     <input type="text" name="prenom" id="prenom" placeholder="Prenom" 
-      class="form-control"
+           class="form-control"
       formControlName = "prenom">
 
     <label for="email" class="sr-only">E.Mail : </label>
     <input type="email" name="email" id="email" placeholder="E.Mail" 
-      class="form-control"
-      formControlName = "email">
+           class="form-control"
+           formControlName = "email">
     <!-- messages d'erreur pour l'email -->
     <div class="alert alert-warning"
-      *ngIf="email.invalid && email.touched" >
+         *ngIf="email.invalid && email.touched" >
       <!-- Premier cas : email vide -->
       <div *ngIf="email.errors?.required">
         L'adresse mail ne peut pas être vide
@@ -40,8 +43,8 @@
 
     <label for="civil" class="sr-only">Civilité : </label>
     <select name="civil" id="civil" 
-      class="form-control"
-      formControlName = "civilite">
+            class="form-control"
+            formControlName = "civilite">
       <option *ngFor="let civ of civilites" value="{{civ.id }}">
          {{civ.libelle}}
       </option>
@@ -49,23 +52,25 @@
 
     <label for="pwd" class="sr-only">Mot de Passe : </label>
     <input type="password" name="pwd" id="pwd" placeholder="Mot de Passe" 
-      class="form-control"
-      formControlName = "password">
+           class="form-control"
+           formControlName = "password">
     <input type="password" name="confirmed_pwd" id="confirmed_pwd" placeholder="Confirmer le mot de passe" 
-      class="form-control"
-      formControlName = "confirmedPassword">
+           class="form-control"
+           formControlName = "confirmedPassword">
 
     <div class="checkbox">     
       <label for="cgu">
         <input type="checkbox" name="cgu" id="cgu"
-          formControlName = "cgu">
+               formControlName = "cgu">
           J'accepte les CGU
       </label>
     </div>   
     
     <button class="btn btn-lg btn-primary btn-block" 
-      type="submit"
-      [disabled]="formController.invalid" >Créer mon compte</button>
+            type="submit"
+            [disabled]="formController.invalid" >
+      Créer mon compte
+    </button>
     <button class="btn btn-default" type="reset">Annuler</button>
     
     <p>
