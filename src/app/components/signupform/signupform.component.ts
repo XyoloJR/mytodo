@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Civilite } from './../../models/civilite';
 
 @Component({
   selector: 'app-signupform',
@@ -10,11 +11,11 @@ export class SignupformComponent implements OnInit {
   /**
    * Tableau des civilités à afficher dans le formulaire
    */
-   public civilites : string[];
+   public civilites : Civilite[];
 
 
   constructor() { 
-    this.civilites =  ["Mademoiselle", "Madame", "Monsieur"];
+    this.civilites =  [ {id:0, libelle:"Mademoiselle"} , {id:1, libelle:"Madame"}, {id:2, libelle:"Monsieur"}];
   }
 
   ngOnInit() {

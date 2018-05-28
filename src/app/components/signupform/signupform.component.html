@@ -15,8 +15,8 @@
 
     <label for="civil" class="sr-only">Civilité : </label>
     <select name="civil" id="civil" class="form-control">
-      <option *ngFor="let civ of civilites" value="{{civ | lowercase}}">
-         {{civ}}
+      <option *ngFor="let civ of civilites" value="{{civ.id }}">
+         {{civ.libelle}}
       </option>
     </select>
 
