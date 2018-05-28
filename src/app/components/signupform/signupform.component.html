@@ -1,0 +1,34 @@
+
+<div class="container">
+  <form class="form-signin">
+    <h1 class="h3 mb-3 font-weight-normal">Créer votre compte</h1>
+    <label for="nom" class="sr-only">Nom : </label>
+    <input type="text" name="nom" id="nom" placeholder="Nom" class="form-control"/>
+
+
+    <label for="prenom" class="sr-only">Prenom : </label>
+    <input type="text" name="prenom" id="prenom" placeholder="Prenom" class="form-control">
+
+    <label for="email" class="sr-only">E.Mail : </label>
+    <input type="email" name="email" id="email" placeholder="E.Mail" class="form-control">
+
+
+    <label for="civil" class="sr-only">Civilité : </label>
+    <select name="civil" id="civil" class="form-control">
+      <option *ngFor="let civ of civilites" value="{{civ | lowercase}}">
+         {{civ}}
+      </option>
+    </select>
+
+    <label for="pwd" class="sr-only">Mot de Passe : </label>
+    <input type="password" name="pwd" id="pwd" placeholder="Mot de Passe" class="form-control">
+
+    <div class="checkbox">     
+      <label for="cgu"><input type="checkbox" name="cgu" id="cgu"> J'accepte les CGU</label>
+    </div>   
+    
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Créer mon compte</button>
+    
+
+  </form>
+</div>
